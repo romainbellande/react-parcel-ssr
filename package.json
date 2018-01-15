@@ -1,0 +1,26 @@
+{
+  "name": "parcel-react-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "parcel build src --out-dir ./build --public-url ./ --no-minify",
+    "build": "node ./bin/prebuild.js && react-snapshot",
+    "start": "node --harmony server.js",
+    "dev": "parcel src --out-dir ./build"
+  },
+  "author": "Ben Gardner <ben@focuswish.com> (http://www.automationfuel.com)",
+  "license": "ISC",
+  "dependencies": {
+    "pushstate-server": "^3.0.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-snapshot": "^1.3.0"
+  },
+  "devDependencies": {
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1"
+  }
+}
