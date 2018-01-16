@@ -25,7 +25,10 @@ function createSnapshot() {
   execSync(`cp ${dist}/*.js ${pub}`)
   execSync(`cp ${dist}/*.html ${pub}/index.html`)
 
-  snap.run({source: 'dist/snapshot'})
+  snap.run({
+    source: 'dist/snapshot',
+    puppeteerArgs: ["--no-sandbox", "--disable-setuid-sandbox"]
+  })
 }
 
 createSnapshot()
