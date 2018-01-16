@@ -3,29 +3,29 @@
 const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
-const snap = require('react-snap')
+const snapshot = require('react-snap')
 
 const dir = process.env.BUILD_DIR || 'dist'
 
 function createSnapshot() {
-  let dist = path.join(__dirname, '../', dir)
-  let pub = path.join(dist, 'snapshot')
+  let distDir = path.join(__dirname, '../', dir)
+  let snapshotDir = path.join(distDir, 'snapshot')
 
-  let indexHtml = path.join(dist, 'index.html')
+  let indexHtml = path.join(distDir, 'index.html')
 
-  if(fs.existsSync(pub)) {
-    execSync(`rm -rf ${pub}`)  
+  if(fs.existsSync(snapshotDir)) {
+    execSync(`rm -rf ${snapshotDir}`)  
   }
 
   if(fs.existsSync(indexHtml)) {
     fs.unlinkSync(indexHtml)
   }
 
-  execSync(`mkdir ${pub}`)
-  execSync(`cp ${dist}/*.js ${pub}`)
-  execSync(`cp ${dist}/*.html ${pub}/index.html`)
+  execSync(`mkdir ${snapshotDir}`)
+  execSync(`cp ${distDir}/*.js ${snapshotDir}`)
+  execSync(`cp ${distDir}/*.html ${snapshotDir}/index.html`)
 
-  snap.run({
+  snapshot.run({
     source: 'dist/snapshot',
     puppeteerArgs: ["--no-sandbox", "--disable-setuid-sandbox"]
   })

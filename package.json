@@ -10,7 +10,7 @@
     "postinstall": "node bin/postinstall.js",
     "build": "parcel build src --public-url /",
     "postbuild": "node --harmony bin/postbuild",
-    "start": "pushstate-server dist/snapshot 3000",
+    "start": "pushstate-server dist/snapshot",
     "dev": "parcel src/index.html --public-url /"
   },
   "author": "Ben Gardner <ben@focuswish.com> (http://www.automationfuel.com)",
