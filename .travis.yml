@@ -6,6 +6,7 @@ branches:
   - master
 install:
 - yarn install --ignore-engines
+- yarn add parcel-bundler --global
 script:
 - yarn run build
 after_success: 
